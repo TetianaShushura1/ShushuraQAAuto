@@ -1,5 +1,5 @@
 import pytest
-
+from modules.api.clients.github import GitHub
 
 class User:
 
@@ -24,3 +24,29 @@ def user():
     yield user
 
     user.remove()
+
+
+@pytest.fixture
+def github_api():
+    api =  GitHub()
+    yield api
+
+ 
+
+@pytest.fixture
+def owner():
+    owner='TetianaShushura1'
+    yield owner  
+
+@pytest.fixture
+def repo():
+    repo='ShushuraQAAuto'
+    yield repo  
+
+@pytest.fixture
+def invalid_repo():
+    invalid_repo = 'invalid_repo'
+    yield invalid_repo
+
+
+            
